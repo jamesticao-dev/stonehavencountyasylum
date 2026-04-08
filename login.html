@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Stone Haven Terminal</title>
+
+    <style>
+        body {
+            background: black;
+            color: #33ff66;
+            font-family: monospace;
+            font-size: 18px;
+            margin: 0;
+            padding: 40px;
+        }
+
+        #terminal {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            background: #33ff66;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        input {
+            background: black;
+            border: none;
+            outline: none;
+            color: #33ff66;
+            font-family: monospace;
+            font-size: 18px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="terminal"></div>
+
+    <script>
+
+        const terminal = document.getElementById("terminal");
+
+        const intro = [
+            "BOOTING STONE HAVEN COUNTY ASYLUM TERMINAL...",
+            "Loading security protocols...",
+            "Connecting to internal network...",
+            "",
+            "STONE HAVEN ASYLUM v3.2",
+            "AUTHORIZED PERSONNEL ONLY",
+            "",
+            "Enter password:"
+        ];
+
+        let line = 0;
+
+        function typeLine() {
+
+            if (line < intro.length) {
+
+                let text = intro[line];
+                let i = 0;
+                let current = document.createElement("div");
+                terminal.appendChild(current);
+
+                let typing = setInterval(function () {
+
+                    current.innerHTML += text.charAt(i);
+                    i++;
+
+                    if (i >= text.length) {
+                        clearInterval(typing);
+                        line++;
+                        setTimeout(typeLine, 500);
+                    }
+
+                }, 30);
+
+            } else {
+
+                showInput();
+
+            }
+
+        }
+
+        function showInput() {
+
+            let inputLine = document.createElement("div");
+
+            inputLine.innerHTML = "> ";
+
+            let input = document.createElement("input");
+
+            input.type = "password";
+
+            input.autofocus = true;
+
+            inputLine.appendChild(input);
+
+            terminal.appendChild(inputLine);
+
+            input.addEventListener("keydown", function (e) {
+
+                if (e.key === "Enter") {
+
+                    checkPassword(input.value);
+
+                }
+
+            });
+
+        }
+
+        function checkPassword(pass) {
+
+            let result = document.createElement("div");
+
+            if (pass === "containment") {
+
+                result.innerHTML = "ACCESS GRANTED";
+
+                terminal.appendChild(result);
+
+                setTimeout(function () {
+
+                    window.location.href = "index.html";
+
+                }, 1500);
+
+            } else {
+
+                result.innerHTML = "ACCESS DENIED";
+
+                terminal.appendChild(result);
+
+                setTimeout(function () {
+
+                    location.reload();
+
+                }, 1500);
+
+            }
+
+        }
+
+        typeLine();
+
+    </script>
+
+</body>
+
+</html>
