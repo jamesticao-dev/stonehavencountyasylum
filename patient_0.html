@@ -5,108 +5,123 @@
   <meta charset="UTF-8">
   <title>Patient Database</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    .note {
-      background: #1a1a1a;
-      padding: 10px;
-      border-left: 4px solid #ff3b3b;
-      margin-top: 10px
-    }
-
-    .warning {
-      color: #ff3b3b;
-      font-weight: bold;
-    }
-  </style>
 </head>
 
 <body>
+  <section>
 
-  <h1>PATIENT DATABASE</h1>
+    <h1>PATIENT DATABASE</h1>
 
-  <a class="back" href="home.html">← RETURN TO TERMINAL</a>
+    <a class="back" href="home.html">← RETURN TO TERMINAL</a>
 
-  <div class="card">
-    <h1>FACILITY RECORD – CLASSIFIED</h1>
-    <p class="warning glitch" data-text="ACCESS LEVEL: RESTRICTED">ACCESS LEVEL: RESTRICTED</p>
-
-    <h2>Subject Information</h2>
-
-    <h3>Patient ID: #000</h3>
-    <p><strong>Name:</strong> Eli REDACTED</p>
-    <p><strong>Age:</strong> 19</p>
-    <p><strong>Admitted:</strong> 2026</p>
-    <p><strong>Sex:</strong> Male</p>
-
-    <h2>Status</h2>
-    <p>Active Subject - Under Continuous Surveillance</p>
-
-    <h2>Psychological Profile</h2>
-    <p>
-      Subject displays unpredictable behavioral patterns. Observed alternating between
-      cooperative, passive, and violently hostile states. Staff reports indicate the
-      subject often appears calm, polite, and curious during interactions but may
-      shift into aggressive behavior without clear external trigger.
-    </p>
-
-    <p>
-      Subject demonstrates high situational awareness and an unusual ability to observe
-      staff routines, security procedures, and facility patterns. Multiple reports
-      indicate the subject intentionally withholds information during psychological
-      evaluations.
-    </p>
-
-    <h2>Behavioral Observations</h2>
-
-    <ul>
-      <li>Frequently engages staff with calm or friendly conversation.</li>
-      <li>Demonstrates advanced analytical thinking during dialogue.</li>
-      <li>Appears to study individuals rather than simply interact with them.</li>
-      <li>Displays little to no fear toward authority figures.</li>
-      <li>Occasionally refuses all communication for extended periods.</li>
-    </ul>
-
-    <h2>Incident History</h2>
-    <ul>
-      <li><strong>Incident 02:</strong> Attempted breach of surveillance blind spot in Sector B corridor.</li>
-      <li><strong>Incident 03:</strong> Psychological manipulation of junior staff member resulting in protocol
-        violation.</li>
-      <li><strong>Incident 04:</strong> Refusal of sedation during restraint procedure; required full security response
-        team.</li>
-    </ul>
-
-    <h2>Containment Measures</h2>
-
-    <ul>
-      <li>24-hour surveillance monitoring</li>
-      <li>Two-person guard presence during all interactions</li>
-      <li>Psychological evaluation conducted only by senior personnel</li>
-      <li>No unsupervised contact permitted</li>
-    </ul>
-
-    <h2>Staff Notes</h2>
-
-    <p>
-      Several staff members report that the subject appears more aware of facility
-      operations than expected for a patient. The subject has asked questions regarding
-      restricted areas, administrative staff, and internal security protocols.
-    </p>
-
-    <div class="note">
-      Recommendation from psychiatric division:<br><br>
-      “Subject should not be treated as a typical patient. Behavioral responses
-      suggest deliberate resistance to external control.”
+    <!-- PASSWORD SCREEN -->
+    <div class="login-box" id="loginBox">
+      <h2>AUTHORIZED ACCESS ONLY</h2>
+      <p>Enter Authorization Code:</p>
+      <input type="password" id="passwordInput" placeholder="Password">
+      <button onclick="checkPassword()">ACCESS</button>
+      <div id="error"></div>
     </div>
 
-    <h2>Final Advisory</h2>
+    <!-- PATIENT CARD -->
 
-    <p class="warning">
-      Patient #012 is considered highly dangerous. Personnel are advised not to
-      underestimate the subject under any circumstances.
-    </p>
+    <div class="card" id="elicard" style="display: none;">
+      <h1>FACILITY RECORD – CLASSIFIED</h1>
+      <p class="warning glitch" data-text="ACCESS LEVEL: RESTRICTED">ACCESS LEVEL: RESTRICTED</p>
 
-  </div>
+      <h2>Subject Information</h2>
 
+      <h3>Patient ID: #000</h3>
+      <p><strong>Name:</strong> Eli REDACTED</p>
+      <p><strong>Age:</strong> 19</p>
+      <p><strong>Admitted:</strong> 2006</p>
+      <p><strong>Sex:</strong> Male</p>
+
+      <h2>Status</h2>
+      <p>Active Subject - Under Continuous Surveillance</p>
+
+      <h2>Psychological Profile</h2>
+      <p>
+        Subject displays unpredictable behavioral patterns. Observed alternating between
+        cooperative, passive, and violently hostile states. Staff reports indicate the
+        subject often appears calm, polite, and curious during interactions but may
+        shift into aggressive behavior without clear external trigger.
+      </p>
+
+      <p>
+        Subject demonstrates high situational awareness and an unusual ability to observe
+        staff routines, security procedures, and facility patterns. Multiple reports
+        indicate the subject intentionally withholds information during psychological
+        evaluations.
+      </p>
+
+      <h2>Behavioral Observations</h2>
+
+      <ul>
+        <li>Frequently engages staff with calm or friendly conversation.</li>
+        <li>Demonstrates advanced analytical thinking during dialogue.</li>
+        <li>Appears to study individuals rather than simply interact with them.</li>
+        <li>Displays little to no fear toward authority figures.</li>
+        <li>Occasionally refuses all communication for extended periods.</li>
+      </ul>
+
+      <h2>Incident History</h2>
+      <ul>
+        <li><strong>Incident 02:</strong> Attempted breach of surveillance blind spot in Sector B corridor.</li>
+        <li><strong>Incident 03:</strong> Psychological manipulation of junior staff member resulting in protocol
+          violation.</li>
+        <li><strong>Incident 06:</strong> Refusal of sedation during restraint procedure; required full security
+          response
+          team.</li>
+      </ul>
+
+      <h2>Containment Measures</h2>
+
+      <ul>
+        <li>24-hour surveillance monitoring</li>
+        <li>Two-person guard presence during all interactions</li>
+        <li>Psychological evaluation conducted only by senior personnel</li>
+        <li>No unsupervised contact permitted</li>
+      </ul>
+
+      <h2>Staff Notes</h2>
+
+      <p>
+        Several staff members report that the subject appears more aware of facility
+        operations than expected for a patient. The subject has asked questions regarding
+        restricted areas, administrative staff, and internal security protocols.
+      </p>
+
+      <div class="note">
+        Recommendation from psychiatric division:<br><br>
+        “Subject should not be treated as a typical patient. Behavioral responses
+        suggest deliberate resistance to external control.”
+      </div>
+
+      <h2>Final Advisory</h2>
+
+      <p class="warning">
+        Patient #012 is considered highly dangerous. Personnel are advised not to
+        underestimate the subject under any circumstances.
+      </p>
+    </div>
+  </section>
+
+  <script>
+    function checkPassword() {
+      const input = document.getElementById('passwordInput').value;
+      const loginBox = document.getElementById('loginBox');
+      const elicard = document.getElementById('elicard');
+      const error = document.getElementById('error');
+
+      if (input === "containment") {
+        loginBox.style.display = 'none';
+        elicard.style.display = 'block';
+      } else {
+        error.innerText = "ACCESS DENIED";
+      }
+    }
+  </script>
 
 </body>
 

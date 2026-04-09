@@ -6,132 +6,6 @@
     <meta charset="UTF-8">
     <title>Stone Haven County Asylum Database</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* ---- Terminal / Body ---- */
-        body {
-            background: #0b0b0b;
-            color: #ffffff;
-            font-family: 'Courier New', monospace;
-            margin: 0;
-            padding: 0;
-            scroll-behavior: smooth;
-        }
-
-        .terminal {
-            text-align: center;
-            padding: 40px;
-            border-bottom: 2px solid #ffffff;
-            position: relative;
-        }
-
-        .warning {
-            color: #ff3b3b;
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            0%, 50%, 100% { opacity: 1; }
-            25%, 75% { opacity: 0.2; }
-        }
-
-        .cursor {
-            display: inline-block;
-            width: 10px;
-            background: #33ff66;
-            animation: blink-cursor 1s infinite;
-        }
-
-        @keyframes blink-cursor {
-            0%, 50%, 100% { background: #33ff66; }
-            25%, 75% { background: transparent; }
-        }
-
-        /* ---- Menu ---- */
-        .menu {
-            margin-top: 30px;
-        }
-
-        .menu a {
-            display: block;
-            margin: 10px;
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 18px;
-            transition: 0.3s;
-        }
-
-        .menu a:hover {
-            color: #33ff66;
-            text-shadow: 0 0 10px #33ff66;
-        }
-
-        /* ---- Sections ---- */
-        section {
-            padding: 40px;
-            border-bottom: 1px solid #222;
-        }
-
-        h2 {
-            border-bottom: 1px solid #ffffff;
-            padding-bottom: 10px;
-        }
-
-        .card {
-            border: 1px solid #ffffff;
-            padding: 20px;
-            margin-top: 20px;
-            background: #111;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            border-color: #33ff66;
-            box-shadow: 0 0 10px #33ff66;
-        }
-
-        .card-content {
-            display: none;
-            margin-top: 10px;
-        }
-
-        .card.expanded .card-content {
-            display: block;
-        }
-
-        .button {
-            display: block;
-            width: 180px;
-            margin: 15px auto;
-            padding: 10px;
-            border: 2px solid #33ff66;
-            color: #33ff66;
-            text-decoration: none;
-            font-size: 16px;
-            transition: 0.3s;
-            text-align: center;
-        }
-
-        .button:hover {
-            background: #33ff66;
-            color: black;
-        }
-
-        /* ---- Glitch Effect ---- */
-        .glitch {
-            color: #33ff66;
-            position: relative;
-        }
-
-        .glitch::after,
-        .glitch::before {
-            content: attr(data-text);
-            position: absolute;
-            left: 0;
-            color: #ff3b3b;
-            clip: rect(0, 0, 0, 0);
-        }
-    </style>
 </head>
 
 <body>
@@ -195,47 +69,47 @@
         <h2>INCIDENT REPORTS</h2>
 
         <div class="card">
-            <h3>Incident #6</h3>
+            <h3>Incident #2</h3>
             <div class="card-content">
                 <p>Location: Sector C Hallway</p>
                 <p>Status: Contained</p>
-                <a class="button" href="incident6.html">VIEW INCIDENT</a>
+                <a class="button" href="incident2.html">VIEW INCIDENT</a>
             </div>
         </div>
 
         <div class="card">
-            <h3>Incident #7</h3>
+            <h3>Incident #3</h3>
             <div class="card-content">
                 <p>Location: Observation Room 3</p>
                 <p>Status: Contained</p>
-                <a class="button" href="incident7.html">VIEW INCIDENT</a>
+                <a class="button" href="incident3.html">VIEW INCIDENT</a>
             </div>
         </div>
 
         <div class="card">
-            <h3>Incident #8</h3>
+            <h3>Incident #4</h3>
             <div class="card-content">
                 <p>Location: Sector B Corridor</p>
                 <p>Status: Contained</p>
-                <a class="button" href="incident8.html">VIEW INCIDENT</a>
+                <a class="button" href="incident4.html">VIEW INCIDENT</a>
             </div>
         </div>
 
         <div class="card">
-            <h3>Incident #9</h3>
+            <h3>Incident #5</h3>
             <div class="card-content">
                 <p>Location: Containment Cell B-12</p>
                 <p>Status: Contained</p>
-                <a class="button" href="incident9.html">VIEW INCIDENT</a>
+                <a class="button" href="incident5.html">VIEW INCIDENT</a>
             </div>
         </div>
 
         <div class="card">
-            <h3>Incident #10</h3>
+            <h3>Incident #6</h3>
             <div class="card-content">
                 <p>Location: Medical Wing</p>
                 <p>Status: Contained</p>
-                <a class="button" href="incident10.html">VIEW INCIDENT</a>
+                <a class="button" href="incident6.html">VIEW INCIDENT</a>
             </div>
         </div>
     </section>

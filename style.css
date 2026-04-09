@@ -1,57 +1,116 @@
+/* ===============================
+   KEYFRAMES
+   =============================== */
+
+/* Flicker effect for lights or text */
 @keyframes flicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
-  20%, 22%, 24%, 55% { opacity: 0.4; }
+
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+        opacity: 1;
+    }
+
+    20%,
+    22%,
+    24%,
+    55% {
+        opacity: 0.4;
+    }
 }
 
+/* Scanline animation for overlay effect */
+@keyframes scanline {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 100%;
+    }
+}
+
+/* Floating radial gradient effect */
+@keyframes float {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(30px, 20px) scale(1.1);
+    }
+}
+
+/* Blink effect for warnings */
+@keyframes blink {
+
+    0%,
+    50%,
+    100% {
+        opacity: 1;
+    }
+
+    25%,
+    75% {
+        opacity: 0.2;
+    }
+}
+
+/* ===============================
+   GLOBAL STYLES
+   =============================== */
 body {
     background: #0b0b0b;
     color: #ffffff;
-    font-family: Courier New, monospace;
+    font-family: "Courier New", monospace;
     margin: 0;
     padding: 0;
     /*animation: flicker 3s infinite;*/
+    /* Optional flicker animation */
 }
 
+/* Overlay: scanline effect */
 body::before {
-  content: '';
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  pointer-events: none;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(255,255,255,0.02),
-    rgba(255,255,255,0.02) 1px,
-    transparent 1px,
-    transparent 2px
-  );
-  animation: scanline 0.5s infinite linear;
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: repeating-linear-gradient(0deg,
+            rgba(255, 255, 255, 0.08),
+            /* brighter lines */
+            rgba(255, 255, 255, 0.08) 2px,
+            /* slightly thicker */
+            transparent 2px,
+            transparent 4px
+            /* less spacing for denser scanlines */
+        );
+    animation: scanline 0.5s infinite linear;
 }
 
-@keyframes scanline {
-  0% { background-position: 0 0; }
-  100% { background-position: 0 100%; }
-}
-
+/* Overlay: floating radial gradient */
 body::after {
-  content: '';
-  position: fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  pointer-events:none;
-  background: radial-gradient(circle, rgba(255,255,255,0.02) 0%, transparent 70%);
-  animation: float 10s infinite alternate;
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
+    animation: float 10s infinite alternate;
 }
 
-@keyframes float {
-  0% { transform: translate(0,0) scale(1); }
-  100% { transform: translate(30px, 20px) scale(1.1); }
-}
-
-/*
-
-*/
-
+/* ===============================
+   TERMINAL & TEXT
+   =============================== */
 .terminal {
     text-align: center;
     padding: 40px;
@@ -63,11 +122,9 @@ body::after {
     animation: blink 1s infinite;
 }
 
-@keyframes blink {
-    0%, 50%, 100% { opacity: 1; }
-    25%, 75% { opacity: 0.2; }
-}
-
+/* ===============================
+   MENU LINKS
+   =============================== */
 .menu {
     margin-top: 30px;
 }
@@ -82,9 +139,13 @@ body::after {
 }
 
 .menu a:hover {
-    color: white;
+    color: #33ff66;
+    text-shadow: 0 0 10px #33ff66;
 }
 
+/* ===============================
+   SECTIONS & HEADINGS
+   =============================== */
 section {
     padding: 40px;
     border-bottom: 1px solid #222;
@@ -95,104 +156,117 @@ h2 {
     padding-bottom: 10px;
 }
 
+/* ===============================
+   CARDS
+   =============================== */
 .card {
     border: 1px solid #ffffff;
     padding: 20px;
     margin-top: 20px;
     background: #111;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card:hover {
+    border-color: #33ff66;
+    box-shadow: 0 0 10px #33ff66;
+}
+
+.card-content {
+    display: none;
+    margin-top: 10px;
+}
+
+.card.expanded .card-content {
+    display: block;
 }
 
 .card h3 {
     margin-top: 0;
 }
 
-/*
-    BUTTON CSS
-*/
-
-.button{
-display:block;
-width:180px;
-margin:15px auto;
-padding:10px;
-border:2px solid #33ff66;
-color:#33ff66;
-text-decoration:none;
-font-size:16px;
-transition:0.3s;
+/* ===============================
+   BUTTONS
+   =============================== */
+.button {
+    display: block;
+    width: 180px;
+    margin: 15px auto;
+    padding: 10px;
+    border: 2px solid #33ff66;
+    color: #33ff66;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+    text-align: center;
 }
 
-.button:hover{
-background:#33ff66;
-color:black;
-}
-.back{
-display:inline-block;
-margin:20px;
-color:#33ff66;
-text-decoration:none;
+.button:hover {
+    background: #33ff66;
+    color: black;
 }
 
-/*      
-    LOGIN CSS
-*/
-
-.login-box{
-
-width:300px;
-margin:150px auto;
-text-align:center;
-border:1px solid #ffffff;
-padding:30px;
-background:#111;
-
+.back {
+    display: inline-block;
+    margin: 20px;
+    color: #33ff66;
+    text-decoration: none;
 }
 
-.login-box input{
-
-width:90%;
-padding:10px;
-margin:10px 0;
-background:#000;
-border:1px solid #ffffff;
-color:#ffffff;
-font-family:Courier New;
-
+/* ===============================
+   LOGIN BOX
+   =============================== */
+.login-box {
+    width: 300px;
+    margin: 150px auto;
+    text-align: center;
+    border: 1px solid #ffffff;
+    padding: 30px;
+    background: #111;
 }
 
-.login-box button{
-
-width:100%;
-padding:10px;
-background:#000;
-border:1px solid #ffffff;
-color:#ffffff;
-cursor:pointer;
-
+.login-box input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    background: #000;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    font-family: "Courier New", monospace;
 }
 
-.login-box button:hover{
-
-background:#ffffff;
-color:#000;
-
+.login-box button {
+    width: 100%;
+    padding: 10px;
+    background: #000;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    cursor: pointer;
 }
 
-#error{
-
-color:#ff3b3b;
-margin-top:10px;
-
+.login-box button:hover {
+    background: #ffffff;
+    color: #000;
 }
 
-.report-card{
-border:2px solid #33ff66;
-background:#111;
-width:400px;
-margin:30px auto;
-padding:20px;
-text-align:left;
+#error {
+    color: #ff3b3b;
+    margin-top: 10px;
 }
-.report-card p{
-margin:10px 0;
+
+/* ===============================
+   REPORT CARD
+   =============================== */
+.report-card {
+    border: 2px solid #33ff66;
+    background: #111;
+    width: 400px;
+    margin: 30px auto;
+    padding: 20px;
+    text-align: left;
+}
+
+.report-card p {
+    margin: 10px 0;
 }
